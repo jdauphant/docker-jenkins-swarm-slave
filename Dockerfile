@@ -8,5 +8,5 @@ RUN apt-get install -y wget openjdk-7-jre-headless
 RUN mkdir -p $install_dir
 RUN wget http://maven.jenkins-ci.org/content/repositories/releases/org/jenkins-ci/plugins/swarm-client/${swarm_version}/swarm-client-${swarm_version}-jar-with-dependencies.jar -O ${install_dir}/swarm-client.jar
 
-ENTRYPOINT ["java", "-jar", "${install_dir}/swarm-client.jar"]
-CMD ["-master", "http://jenkins:8080"]
+ENTRYPOINT java -jar ${install_dir}/swarm-client.jar
+CMD -master http://jenkins:8080
